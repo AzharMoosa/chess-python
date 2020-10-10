@@ -39,8 +39,6 @@ class Valid_One:
             for piece in opponent:
                 if (move[0] == self.dx and move[1] == self.dy and board[self.y2 - 1][self.x2 - 1] == " "):
                     return True
-                elif (board[self.y2 - 1][self.x2 - 1] == piece.symbol and move[0] == self.dx and move[1] == self.dy):
-                    return True
 
     def bishop(self, piece, opponent, game_board):
         # Check Name

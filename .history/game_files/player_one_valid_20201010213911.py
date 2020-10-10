@@ -29,35 +29,27 @@ class Valid_One:
 
         return False
 
-    def knight(self, piece, opponent, game_board):
+    def knight(piece, opponent, game_board):
         # Check Name
         if (piece.name != "knight"):
             return False
 
-        board = game_board.get_board()
-        for move in piece.possible_moves:
-            for piece in opponent:
-                if (move[0] == self.dx and move[1] == self.dy and board[self.y2 - 1][self.x2 - 1] == " "):
-                    return True
-                elif (board[self.y2 - 1][self.x2 - 1] == piece.symbol and move[0] == self.dx and move[1] == self.dy):
-                    return True
-
-    def bishop(self, piece, opponent, game_board):
+    def bishop(piece, opponent, game_board):
         # Check Name
         if (piece.name != "bishop"):
             return False
 
-    def queen(self, piece, opponent, game_board):
+    def queen(piece, opponent, game_board):
         # Check Name
         if (piece.name != "queen"):
             return False
 
-    def king(self, piece, opponent, game_board):
+    def king(piece, opponent, game_board):
         # Check Name
         if (piece.name != "king"):
             return False
 
-    def rook(self, piece, opponent, game_board):
+    def rook(piece, opponent, game_board):
         # Check Name
         if (piece.name != "rook"):
             return False
