@@ -1,6 +1,7 @@
 import os
 import sys
 from game_files.player import Player
+from game_files.board import Board
 
 
 class Game:
@@ -75,16 +76,24 @@ class Game:
         player_two_name = input("Name of Player Two: ")
 
         # Create Players
-        player_one = Player(player_one_name)
-        player_two = Player(player_two_name)
+        self.player_one = Player(player_one_name)
+        self.player_two = Player(player_two_name)
 
         # Init Game
         self.cls()
         self.printLineBreak()
-        print(f"{player_one.name} - White | {player_two.name} - Black".center(50))
+        print(
+            f"{self.player_one.name} - White | {self.player_two.name} - Black".center(50))
+
+        # Create Board
+        self.game_board = Board()
+
+        # Add Pieces to Players
 
     def start(self):
         while True:
+            self.printLineBreak()
+            self.game_board.print_board()
             break
 
 
