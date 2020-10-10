@@ -92,12 +92,7 @@ class Valid_One:
             return False
 
         for piece in opponent:
-            if (board[self.y2 - 1][self.x2 - 1] == " "):
-                return True
-            elif (board[self.y2 - 1][self.x2 - 1] == piece.symbol):
-                return True
-
-        return False
+            if (self.)
 
     def king(self, piece, opponent, game_board):
         # Check Name

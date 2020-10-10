@@ -53,51 +53,16 @@ class Valid_One:
         if (piece.name != "bishop"):
             return False
 
-        # Get Game Board
+         # Get Game Board
         board = game_board.get_board()
-        for piece in opponent:
-            if (abs(self.dy) == abs(self.dx) and board[self.y2 - 1][self.x2 - 1] == " "):
-                return True
-            elif (board[self.y2 - 1][self.x2 - 1] == piece.symbol and abs(self.dy) == abs(self.dx)):
-                return True
-
-        return False
 
     def queen(self, piece, opponent, game_board):
         # Check Name
         if (piece.name != "queen"):
             return False
 
-        # Get Game Board
+         # Get Game Board
         board = game_board.get_board()
-
-        if (self.dx == 0 or self.dy == 0 or abs(self.dx) == abs(self.dy)):
-            dirX = 0 if (self.dx == 0) else 1
-            dirY = 0 if (self.dy == 0) else 1
-            length = self.dy if (self.dx == 0) else self.dx
-
-            dirX = 1 if (self.x2 > self.x1) else -1
-            dirY = 1 if (self.y2 > self.y1) else -1
-
-            if (self.dx == 0):
-                dirX = 0
-                dirY = 1
-            elif (self.dy == 0):
-                dirX = 1
-                dirY = 0
-            for i in range(1, length):
-                if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):
-                    return False
-        else:
-            return False
-
-        for piece in opponent:
-            if (board[self.y2 - 1][self.x2 - 1] == " "):
-                return True
-            elif (board[self.y2 - 1][self.x2 - 1] == piece.symbol):
-                return True
-
-        return False
 
     def king(self, piece, opponent, game_board):
         # Check Name

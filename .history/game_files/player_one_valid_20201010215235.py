@@ -76,29 +76,6 @@ class Valid_One:
             dirY = 0 if (self.dy == 0) else 1
             length = self.dy if (self.dx == 0) else self.dx
 
-            dirX = 1 if (self.x2 > self.x1) else -1
-            dirY = 1 if (self.y2 > self.y1) else -1
-
-            if (self.dx == 0):
-                dirX = 0
-                dirY = 1
-            elif (self.dy == 0):
-                dirX = 1
-                dirY = 0
-            for i in range(1, length):
-                if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):
-                    return False
-        else:
-            return False
-
-        for piece in opponent:
-            if (board[self.y2 - 1][self.x2 - 1] == " "):
-                return True
-            elif (board[self.y2 - 1][self.x2 - 1] == piece.symbol):
-                return True
-
-        return False
-
     def king(self, piece, opponent, game_board):
         # Check Name
         if (piece.name != "king"):
