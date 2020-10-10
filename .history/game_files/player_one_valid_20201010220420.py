@@ -134,17 +134,3 @@ class Valid_One:
         length = self.dy if (self.dx == self.dy) else self.dx
 
         for i in range(1, length + 1):
-            if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):
-                return False
-
-        for piece in opponent:
-            if (self.dy == 0 and board[self.y2 - 1][self.x2 - 1] == " "):
-                return True
-            elif (self.dx == 0 and board[self.y2 - 1][self.x2 - 1] == " "):
-                return True
-            elif (board[self.y2 - 1][self.x2 - 1] == piece.symbol and self.dx == 0):
-                return True
-            elif (board[self.y2 - 1][self.x2 - 1] == piece.symbol and self.dy == 0):
-                return True
-
-        return False
