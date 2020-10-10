@@ -39,7 +39,7 @@ class Rook:
         self.name = "rook"
         self.current_position = current_position
         self.symbol = symbol
-        self.alive = True
+        self.alive = = True
 
 
 class Knight:
@@ -49,4 +49,4 @@ class Knight:
                                [1, -2], [-1, 2], [-2, -1], [-2, 1], [-1, -2]]
         self.current_position = current_position
         self.symbol = symbol
-        self.alive = True
+        self.alive = alive

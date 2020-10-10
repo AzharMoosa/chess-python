@@ -99,10 +99,7 @@ class Game:
             # Update Board
             self.game_board.update_board(self.player_one, self.player_two)
             self.printLineBreak()
-
-            # Print Board
             self.game_board.print_board()
-
             break
 
     def add_pieces_one(self, player_one):

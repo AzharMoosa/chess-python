@@ -29,10 +29,10 @@ class Board:
             display_board += f"{count} "
             display_board += "|"
             for i in range(0, 8):
-                display_board += f" {row[i]} |"
+                display_board += f"{row[i]}|"
             count += 1
             display_board += "\n"
-        display_board += "    a   b   c   d   e   f   g   h"
+        display_board += "    a  b  c  d  e  f  g  h"
         print(display_board)
 
     def update_board(self, player_one, player_two):

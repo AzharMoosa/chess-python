@@ -91,18 +91,11 @@ class Game:
         self.game_board = Board()
 
         # Add Pieces to Players
-        self.add_pieces_one(self.player_one)
-        self.add_pieces_two(self.player_two)
 
     def start(self):
         while True:
-            # Update Board
-            self.game_board.update_board(self.player_one, self.player_two)
             self.printLineBreak()
-
-            # Print Board
             self.game_board.print_board()
-
             break
 
     def add_pieces_one(self, player_one):
@@ -114,30 +107,6 @@ class Game:
         bishop_two = Bishop("\u2657", [6, 1])
         knight_one = Knight("\u2658", [2, 1])
         knight_two = Knight("\u2658", [7, 1])
-        player_one.pieces.extend((king, queen, rook_one, rook_two,
-                                  bishop_one, bishop_two, knight_one, knight_two))
-
-        # Pawns
-        for i in range(0, 8):
-            pawn = Pawn("\u2659", [i+1, 2])
-            player_one.pieces.append(pawn)
-
-    def add_pieces_two(self, player_two):
-        king = King("\u265A", [5, 8])
-        queen = Queen("\u265B", [4, 8])
-        rook_one = Rook("\u265C", [1, 8])
-        rook_two = Rook("\u265C", [8, 8])
-        bishop_one = Bishop("\u265D", [3, 8])
-        bishop_two = Bishop("\u265D", [6, 8])
-        knight_one = Knight("\u265E", [2, 8])
-        knight_two = Knight("\u265E", [7, 8])
-        player_two.pieces.extend((king, queen, rook_one, rook_two,
-                                  bishop_one, bishop_two, knight_one, knight_two))
-
-        # Pawns
-        for i in range(0, 8):
-            pawn = Pawn("\u265F", [i+1, 7])
-            player_two.pieces.append(pawn)
 
 
 chess_game = Game()

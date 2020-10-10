@@ -102,7 +102,6 @@ class Game:
 
             # Print Board
             self.game_board.print_board()
-
             break
 
     def add_pieces_one(self, player_one):
