@@ -223,9 +223,5 @@ class Game:
         # Convert Coords
         coord = self.convert_position(to)
 
-        # Input Out of Range
-        if (coord[0] < 1 or coord[0] > 8 or coord[1] or coord[1] > 8):
-            return False
-
 
 chess_game = Game()

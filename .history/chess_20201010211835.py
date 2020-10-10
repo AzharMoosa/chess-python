@@ -201,31 +201,11 @@ class Game:
         if (from.split("") > 2 or not from):
             return False
 
-        # Convert Coords
+        # Convert Coord
         coord = self.convert_position(from)
 
-        # Check If Coords is Between 1 and 8
         if (coord[0] >= 1 and coord[0] <= 8 and coord[1] >= 1 and coord[1] <= 8):
             players_pieces = current_player.pieces
-            for piece, i in players_pieces:
-                if (piece.current_position == coord):
-                    self.current_piece = i
-                    self.starting_point = coord
-                    return True
-
-        return False
-
-    def valid_to(self, to, current_player):
-        # Check If Input Is Valid
-        if (not to):
-            return False
-
-        # Convert Coords
-        coord = self.convert_position(to)
-
-        # Input Out of Range
-        if (coord[0] < 1 or coord[0] > 8 or coord[1] or coord[1] > 8):
-            return False
 
 
 chess_game = Game()

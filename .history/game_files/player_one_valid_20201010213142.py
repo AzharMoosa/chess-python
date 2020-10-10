@@ -28,6 +28,3 @@ class Valid_One:
                 return True
 
         return False
-
-    def knight(piece, opponent, game_board):
-        print("TODO")

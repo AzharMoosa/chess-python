@@ -26,8 +26,3 @@ class Valid_One:
                 return True
             elif (board[self.y2 - 1][self.x2 - 1] == " " and self.dy == 1 and self.dx == 0):
                 return True
-
-        return False
-
-    def knight(piece, opponent, game_board):
-        print("TODO")

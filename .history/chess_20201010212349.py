@@ -224,7 +224,7 @@ class Game:
         coord = self.convert_position(to)
 
         # Input Out of Range
-        if (coord[0] < 1 or coord[0] > 8 or coord[1] or coord[1] > 8):
+        if (coord[0] < 1 and coord[0] > 8 and coord[1] and coord[1] > 8):
             return False
 
 

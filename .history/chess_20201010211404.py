@@ -15,8 +15,6 @@ class Game:
     player_two = None
     game_board = None
     opponent_player = None
-    current_piece = 0
-    starting_point = []
 
     def __init__(self):
         self.printMenu()
@@ -194,38 +192,9 @@ class Game:
     def convert_position(self, position):
         position_array = position.split("")
         letter_to_number = ord(position_array[0]) - 96
-        return [letter_to_number, position_array[1]]
 
     def valid_from(self, from, current_player):
-        # Check If Input Is Valid
-        if (from.split("") > 2 or not from):
-            return False
-
-        # Convert Coords
-        coord = self.convert_position(from)
-
-        # Check If Coords is Between 1 and 8
-        if (coord[0] >= 1 and coord[0] <= 8 and coord[1] >= 1 and coord[1] <= 8):
-            players_pieces = current_player.pieces
-            for piece, i in players_pieces:
-                if (piece.current_position == coord):
-                    self.current_piece = i
-                    self.starting_point = coord
-                    return True
-
-        return False
-
-    def valid_to(self, to, current_player):
-        # Check If Input Is Valid
-        if (not to):
-            return False
-
-        # Convert Coords
-        coord = self.convert_position(to)
-
-        # Input Out of Range
-        if (coord[0] < 1 or coord[0] > 8 or coord[1] or coord[1] > 8):
-            return False
+        print("TODO")
 
 
 chess_game = Game()

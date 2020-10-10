@@ -19,15 +19,3 @@ class Valid_One:
         # Check Name
         if (piece.name != "pawn"):
             return False
-
-        board = game_board.get_board()
-        for piece in opponent:
-            if (board[self.y2 - 1][self.x2 - 1] == piece.symbol and ((self.dy == 1 and self.dx == 1) or (self.dy == 1 and self.dx == -1))):
-                return True
-            elif (board[self.y2 - 1][self.x2 - 1] == " " and self.dy == 1 and self.dx == 0):
-                return True
-
-        return False
-
-    def knight(piece, opponent, game_board):
-        print("TODO")
