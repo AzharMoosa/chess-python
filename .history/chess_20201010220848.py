@@ -196,13 +196,13 @@ class Game:
         letter_to_number = ord(position_array[0]) - 96
         return [letter_to_number, position_array[1]]
 
-    def valid_from(self, from_point, current_player):
+    def valid_from(self, from, current_player):
         # Check If Input Is Valid
-        if (from_point.split("") > 2 or not from_point):
+        if (from.split("") > 2 or not from):
             return False
 
         # Convert Coords
-        coord = self.convert_position(from_point)
+        coord = self.convert_position(from)
 
         # Check If Coords is Between 1 and 8
         if (coord[0] >= 1 and coord[0] <= 8 and coord[1] >= 1 and coord[1] <= 8):

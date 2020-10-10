@@ -198,7 +198,7 @@ class Game:
 
     def valid_from(self, from_point, current_player):
         # Check If Input Is Valid
-        if (from_point.split("") > 2 or not from_point):
+        if (from.split("") > 2 or not from_point):
             return False
 
         # Convert Coords
