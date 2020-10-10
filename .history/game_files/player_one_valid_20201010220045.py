@@ -110,7 +110,6 @@ class Valid_One:
         # Get Game Board
         board = game_board.get_board()
 
-        # Check Validity Move
         for piece in opponent:
             for move in piece.possible_moves:
                 if (move[0] == self.dx and move[1] == self.dy and board[self.y2 - 1][self.x2 - 1] == " "):
