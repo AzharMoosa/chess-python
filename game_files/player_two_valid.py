@@ -86,7 +86,7 @@ class Valid_Two:
             elif (self.dy == 0):
                 dirX = 1
                 dirY = 0
-            for i in range(1, length + 1):
+            for i in range(1, length):
                 if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):
                     return False
         else:
@@ -131,7 +131,7 @@ class Valid_Two:
         dirY = 0 if (self.dy == 0) else 1
         length = self.dy if (self.dx == 0) else self.dx
 
-        for i in range(1, length + 1):
+        for i in range(1, length):
             if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):
                 return False
 

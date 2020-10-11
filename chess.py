@@ -222,7 +222,7 @@ class Game:
 
     def valid_from(self, from_point, current_player):
         # Check If Input Is Valid
-        if (len(from_point) > 2 or from_point == ""):
+        if (len(from_point) != 2 or from_point == ""):
             return False
 
         # Convert Coords
@@ -241,7 +241,7 @@ class Game:
 
     def valid_to(self, to, current_player):
         # Check If Input Is Valid
-        if (len(to) > 2 or to == ""):
+        if (len(to) != 2 or to == ""):
             return False
 
         # Convert Coords

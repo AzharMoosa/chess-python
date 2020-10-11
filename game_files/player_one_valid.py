@@ -88,12 +88,13 @@ class Valid_One:
             elif (self.dy == 0):
                 dirX = -1
                 dirY = 0
-            for i in range(1, abs(length) + 1):
-                if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):
-                    return False
+            for i in range(1, abs(length)):
+                for piece in opponent:
+                    if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):
+                        return False
         else:
             return False
-        print("ss")
+
         for piece in opponent:
             if (board[self.y2 - 1][self.x2 - 1] == " "):
                 return True
@@ -133,7 +134,7 @@ class Valid_One:
         dirY = 0 if (self.dy == 0) else -1
         length = self.dy if (self.dx == 0) else self.dx
 
-        for i in range(1, abs(length) + 1):
+        for i in range(1, abs(length)):
             if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):
                 return False
 
