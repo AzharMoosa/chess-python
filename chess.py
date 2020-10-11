@@ -4,6 +4,9 @@ import sys
 from game_files.player import Player
 from game_files.board import Board
 from game_files.pieces import *
+from game_files.player_one_valid import Valid_One
+from game_files.player_two_valid import Valid_Two
+from game_files.move import Move
 
 
 class Game:
@@ -17,6 +20,7 @@ class Game:
     opponent_player = None
     current_piece = 0
     starting_point = []
+    valid = None
 
     def __init__(self):
         self.printMenu()
@@ -192,13 +196,13 @@ class Game:
         print("TODO")
 
     def convert_position(self, position):
-        position_array = position.split("")
+        position_array = list(position)
         letter_to_number = ord(position_array[0]) - 96
-        return [letter_to_number, position_array[1]]
+        return [int(letter_to_number), int(position_array[1])]
 
     def valid_from(self, from_point, current_player):
         # Check If Input Is Valid
-        if (from_point.split("") > 2 or not from_point):
+        if (len(from_point) > 2 or from_point == ""):
             return False
 
         # Convert Coords
@@ -207,7 +211,7 @@ class Game:
         # Check If Coords is Between 1 and 8
         if (coord[0] >= 1 and coord[0] <= 8 and coord[1] >= 1 and coord[1] <= 8):
             players_pieces = current_player.pieces
-            for piece, i in players_pieces:
+            for i, piece in enumerate(players_pieces):
                 if (piece.current_position == coord):
                     self.current_piece = i
                     self.starting_point = coord
@@ -226,6 +230,29 @@ class Game:
         # Input Out of Range
         if (coord[0] < 1 or coord[0] > 8 or coord[1] or coord[1] > 8):
             return False
+
+        player_pieces = current_player.pieces
+        piece = player_pieces[self.current_piece]
+
+        if (current_player == self.player_one):
+            self.valid = Valid_One(self.starting_point, coord)
+        elif (current_player == self.player_two):
+            self.valid = Valid_Two(self.starting_point, coord)
+
+        if (self.valid.pawn(piece, self.opponent_player.pieces, self.game_board)):
+            return True
+        elif (self.valid.knight(piece, self.opponent_player.pieces, self.game_board)):
+            return True
+        elif (self.valid.queen(piece, self.opponent_player.pieces, self.game_board)):
+            return True
+        elif (self.valid.bishop(piece, self.opponent_player.pieces, self.game_board)):
+            return True
+        elif (self.valid.rook(piece, self.opponent_player.pieces, self.game_board)):
+            return True
+        elif (self.valid.king(piece, self.opponent_player.pieces, self.game_board)):
+            return True
+
+        return False
 
 
 chess_game = Game()
