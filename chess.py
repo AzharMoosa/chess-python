@@ -92,7 +92,7 @@ class Game:
         self.cls()
         self.printLineBreak()
         print(
-            f"{self.player_one.name} - White | {self.player_two.name} - Black".center(50))
+            f"{self.player_one.name} - Black | {self.player_two.name} - White".center(50))
 
         # Create Board
         self.game_board = Board()
@@ -144,7 +144,11 @@ class Game:
             # Next Turn
             if (move):
                 self.next_turn()
-                # self.cls()
+                self.cls()
+
+            # Check or Checkmate
+            if (self.check_winner(to, self.game_board, current_player, self.opponent_player)):
+                break
 
     def add_pieces_one(self, player_one):
         king = King("\u2654", [5, 8])
@@ -181,6 +185,7 @@ class Game:
             player_two.pieces.append(pawn)
 
     def current_turn(self, player_one, player_two):
+        # Determine Who is Current Player
         if (self.turn == 0):
             return player_one
         elif (self.turn == 1):
@@ -189,6 +194,7 @@ class Game:
             return -1
 
     def opponent_turn(self, player_one, player_two):
+        # Determine Who is Opponent Player
         if (self.turn == 0):
             return player_two
         elif (self.turn == 1):
@@ -197,6 +203,7 @@ class Game:
             return -1
 
     def next_turn(self):
+        # Next Turn
         if (self.turn == 0):
             self.turn = 1
         elif (self.turn == 1):
@@ -206,8 +213,11 @@ class Game:
         print("TODO")
 
     def convert_position(self, position):
+        # Split Position into List
         position_array = list(position)
+        # Convert Letter to Number
         letter_to_number = ord(position_array[0]) - 96
+        # Return Position in Numbers
         return [int(letter_to_number), int(position_array[1])]
 
     def valid_from(self, from_point, current_player):
@@ -241,14 +251,17 @@ class Game:
         if (coord[0] < 1 and coord[0] > 8 and coord[1] < 1 and coord[1] > 8):
             return False
 
+        # Get Current Piece
         player_pieces = current_player.pieces
         piece = player_pieces[self.current_piece]
 
+        # Use Correct Validity Checker
         if (current_player == self.player_one):
             self.valid = Valid_One(self.starting_point, coord)
         elif (current_player == self.player_two):
             self.valid = Valid_Two(self.starting_point, coord)
 
+        # Check Validity Of Move
         if (self.valid.pawn(piece, self.opponent_player.pieces, self.game_board)):
             return True
         elif (self.valid.knight(piece, self.opponent_player.pieces, self.game_board)):
@@ -261,6 +274,72 @@ class Game:
             return True
         elif (self.valid.king(piece, self.opponent_player.pieces, self.game_board)):
             return True
+
+        return False
+
+    def check_winner(self, to, game_board, current_player, opponent_player):
+        moves = [[0, 1], [1, 0], [0, -1], [-1, 0],
+                 [1, 1], [-1, -1], [-1, 1], [1, -1]]
+        valid_moves = []
+        king_position = []
+        current_player_pieces = current_player.pieces
+        opponent_player_pieces = opponent_player.pieces
+
+        for piece in opponent_player_pieces:
+            if (piece.name == "king"):
+                king_position = piece.current_position
+
+        if (not king_position):
+            print(f"{current_player.name} Wins!")
+            return True
+
+        x1 = king_position[0]
+        y1 = king_position[1]
+        board = game_board.get_board()
+
+        for move in moves:
+            x2 = x1 + move[0]
+            y2 = y1 + move[1]
+            if (x2 > 0 and x2 < 9 and y2 > 0 and y2 < 9 and board[y2 - 1][x2 - 1] == " "):
+                valid_moves += [move]
+
+        possible_count = 0
+        valid_moves_length = len(valid_moves)
+
+        for move in valid_moves:
+            x2 = x1 + move[0]
+            y2 = y1 + move[1]
+            coord = [x2, y2]
+            players_pieces = current_player_pieces
+            for piece in players_pieces:
+                if (current_player == self.player_one):
+                    self.valid = Valid_One(piece.current_position, coord)
+                elif (current_player == self.player_two):
+                    self.valid = Valid_Two(piece.current_position, coord)
+
+                if (self.valid.pawn(piece, self.opponent_player.pieces, self.game_board)):
+                    possible_count += 1
+                elif (self.valid.knight(piece, self.opponent_player.pieces, self.game_board)):
+                    possible_count += 1
+                elif (self.valid.queen(piece, self.opponent_player.pieces, self.game_board)):
+                    possible_count += 1
+                elif (self.valid.bishop(piece, self.opponent_player.pieces, self.game_board)):
+                    possible_count += 1
+                elif (self.valid.rook(piece, self.opponent_player.pieces, self.game_board)):
+                    possible_count += 1
+                elif (self.valid.king(piece, self.opponent_player.pieces, self.game_board)):
+                    possible_count += 1
+
+        # If King is Surrounded
+        if (len(valid_moves) == 0):
+            return False
+
+        if (possible_count == valid_moves_length):
+            print(f"Checkmate\n{current_player.name} Wins!")
+            return True
+
+        if (possible_count > 0):
+            print("Check")
 
         return False
 

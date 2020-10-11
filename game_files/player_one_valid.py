@@ -93,7 +93,7 @@ class Valid_One:
                     return False
         else:
             return False
-
+        print("ss")
         for piece in opponent:
             if (board[self.y2 - 1][self.x2 - 1] == " "):
                 return True
@@ -111,7 +111,6 @@ class Valid_One:
         board = game_board.get_board()
 
         # Check Validity Move
-
         for move in piece.possible_moves:
             for piece in opponent:
                 if (move[0] == self.dx and move[1] == self.dy and board[self.y2 - 1][self.x2 - 1] == " "):
