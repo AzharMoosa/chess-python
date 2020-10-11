@@ -22,3 +22,5 @@ class Move:
         players_pieces = self.current_player.pieces
         piece = players_pieces[self.current_piece]
         piece.current_position = self.to
+
+        return True

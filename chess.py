@@ -131,43 +131,53 @@ class Game:
                     self.saveGame()
                     sys.exit(0)
                 to_input = input("To: ")
+
                 if (self.valid_from(from_input, current_player) and self.valid_to(to_input, current_player)):
                     break
 
-            break
+            # Move Piece
+            from_position = self.convert_position(from_input)
+            to = self.convert_position(to_input)
+            move = Move(from_position, to, self.game_board,
+                        current_player, self.opponent_player, self.current_piece)
+
+            # Next Turn
+            if (move):
+                self.next_turn()
+                self.cls()
 
     def add_pieces_one(self, player_one):
-        king = King("\u2654", [5, 1])
-        queen = Queen("\u2655", [4, 1])
-        rook_one = Rook("\u2656", [1, 1])
-        rook_two = Rook("\u2656", [8, 1])
-        bishop_one = Bishop("\u2657", [3, 1])
-        bishop_two = Bishop("\u2657", [6, 1])
-        knight_one = Knight("\u2658", [2, 1])
-        knight_two = Knight("\u2658", [7, 1])
+        king = King("\u2654", [5, 8])
+        queen = Queen("\u2655", [4, 8])
+        rook_one = Rook("\u2656", [1, 8])
+        rook_two = Rook("\u2656", [8, 8])
+        bishop_one = Bishop("\u2657", [3, 8])
+        bishop_two = Bishop("\u2657", [6, 8])
+        knight_one = Knight("\u2658", [2, 8])
+        knight_two = Knight("\u2658", [7, 8])
         player_one.pieces.extend((king, queen, rook_one, rook_two,
                                   bishop_one, bishop_two, knight_one, knight_two))
 
         # Pawns
         for i in range(0, 8):
-            pawn = Pawn("\u2659", [i+1, 2])
+            pawn = Pawn("\u2659", [i+1, 7])
             player_one.pieces.append(pawn)
 
     def add_pieces_two(self, player_two):
-        king = King("\u265A", [5, 8])
-        queen = Queen("\u265B", [4, 8])
-        rook_one = Rook("\u265C", [1, 8])
-        rook_two = Rook("\u265C", [8, 8])
-        bishop_one = Bishop("\u265D", [3, 8])
-        bishop_two = Bishop("\u265D", [6, 8])
-        knight_one = Knight("\u265E", [2, 8])
-        knight_two = Knight("\u265E", [7, 8])
+        king = King("\u265A", [5, 1])
+        queen = Queen("\u265B", [4, 1])
+        rook_one = Rook("\u265C", [1, 1])
+        rook_two = Rook("\u265C", [8, 1])
+        bishop_one = Bishop("\u265D", [3, 1])
+        bishop_two = Bishop("\u265D", [6, 1])
+        knight_one = Knight("\u265E", [2, 1])
+        knight_two = Knight("\u265E", [7, 1])
         player_two.pieces.extend((king, queen, rook_one, rook_two,
                                   bishop_one, bishop_two, knight_one, knight_two))
 
         # Pawns
         for i in range(0, 8):
-            pawn = Pawn("\u265F", [i+1, 7])
+            pawn = Pawn("\u265F", [i+1, 2])
             player_two.pieces.append(pawn)
 
     def current_turn(self, player_one, player_two):
@@ -211,8 +221,8 @@ class Game:
         # Check If Coords is Between 1 and 8
         if (coord[0] >= 1 and coord[0] <= 8 and coord[1] >= 1 and coord[1] <= 8):
             players_pieces = current_player.pieces
-            for i, piece in enumerate(players_pieces):
-                if (piece.current_position == coord):
+            for i in range(0, len(players_pieces)):
+                if (players_pieces[i].current_position == coord):
                     self.current_piece = i
                     self.starting_point = coord
                     return True
@@ -221,14 +231,14 @@ class Game:
 
     def valid_to(self, to, current_player):
         # Check If Input Is Valid
-        if (not to):
+        if (to == ""):
             return False
 
         # Convert Coords
         coord = self.convert_position(to)
 
         # Input Out of Range
-        if (coord[0] < 1 or coord[0] > 8 or coord[1] or coord[1] > 8):
+        if (coord[0] < 1 and coord[0] > 8 and coord[1] < 1 and coord[1] > 8):
             return False
 
         player_pieces = current_player.pieces
