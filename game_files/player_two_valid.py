@@ -109,8 +109,8 @@ class Valid_Two:
         board = game_board.get_board()
 
         # Check Validity Move
-        for piece in opponent:
-            for move in piece.possible_moves:
+        for move in piece.possible_moves:
+            for piece in opponent:
                 if (move[0] == self.dx and move[1] == self.dy and board[self.y2 - 1][self.x2 - 1] == " "):
                     return True
                 elif (board[self.y2 - 1][self.x2 - 1] == piece.symbol and move[0] == self.dx and move[1] == self.dy):
@@ -130,7 +130,6 @@ class Valid_Two:
         dirX = 0 if (self.dx == 0) else 1
         dirY = 0 if (self.dy == 0) else 1
         length = self.dy if (self.dx == 0) else self.dx
-        length = length * -1
 
         for i in range(1, length + 1):
             if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):

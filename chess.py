@@ -144,7 +144,7 @@ class Game:
             # Next Turn
             if (move):
                 self.next_turn()
-                self.cls()
+                # self.cls()
 
     def add_pieces_one(self, player_one):
         king = King("\u2654", [5, 8])
@@ -231,7 +231,7 @@ class Game:
 
     def valid_to(self, to, current_player):
         # Check If Input Is Valid
-        if (to == ""):
+        if (len(to) > 2 or to == ""):
             return False
 
         # Convert Coords
