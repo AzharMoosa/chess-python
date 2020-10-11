@@ -1,0 +1,529 @@
+- 1
+- !!python/object:game_files.player.Player
+  name: John
+  pieces:
+  - !!python/object:game_files.pieces.King
+    alive: true
+    current_position:
+    - 5
+    - 8
+    name: king
+    possible_moves:
+    - - 0
+      - 1
+    - - 0
+      - 1
+    - - 0
+      - -1
+    - - -1
+      - 0
+    - - 1
+      - 1
+    - - -1
+      - -1
+    - - -1
+      - 1
+    - - 1
+      - -1
+    symbol: "\u2654"
+  - !!python/object:game_files.pieces.Queen
+    alive: true
+    current_position:
+    - 4
+    - 8
+    name: queen
+    symbol: "\u2655"
+  - !!python/object:game_files.pieces.Rook
+    alive: true
+    current_position:
+    - 1
+    - 8
+    name: rook
+    symbol: "\u2656"
+  - !!python/object:game_files.pieces.Rook
+    alive: true
+    current_position:
+    - 8
+    - 8
+    name: rook
+    symbol: "\u2656"
+  - !!python/object:game_files.pieces.Bishop
+    alive: true
+    current_position:
+    - 3
+    - 8
+    name: bishop
+    symbol: "\u2657"
+  - !!python/object:game_files.pieces.Bishop
+    alive: true
+    current_position:
+    - 6
+    - 8
+    name: bishop
+    symbol: "\u2657"
+  - !!python/object:game_files.pieces.Knight
+    alive: true
+    current_position:
+    - 2
+    - 8
+    name: knight
+    possible_moves:
+    - - 1
+      - 2
+    - - 2
+      - 1
+    - - 2
+      - -1
+    - - 1
+      - -2
+    - - -1
+      - 2
+    - - -2
+      - -1
+    - - -2
+      - 1
+    - - -1
+      - -2
+    symbol: "\u2658"
+  - !!python/object:game_files.pieces.Knight
+    alive: true
+    current_position:
+    - 7
+    - 8
+    name: knight
+    possible_moves:
+    - - 1
+      - 2
+    - - 2
+      - 1
+    - - 2
+      - -1
+    - - 1
+      - -2
+    - - -1
+      - 2
+    - - -2
+      - -1
+    - - -2
+      - 1
+    - - -1
+      - -2
+    symbol: "\u2658"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 1
+    - 6
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u2659"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 2
+    - 7
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u2659"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 3
+    - 7
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u2659"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 4
+    - 7
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u2659"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 5
+    - 7
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u2659"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 6
+    - 7
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u2659"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 7
+    - 7
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u2659"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 8
+    - 7
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u2659"
+  winner: false
+- !!python/object:game_files.player.Player
+  name: Foo
+  pieces:
+  - !!python/object:game_files.pieces.King
+    alive: true
+    current_position:
+    - 5
+    - 1
+    name: king
+    possible_moves:
+    - - 0
+      - 1
+    - - 0
+      - 1
+    - - 0
+      - -1
+    - - -1
+      - 0
+    - - 1
+      - 1
+    - - -1
+      - -1
+    - - -1
+      - 1
+    - - 1
+      - -1
+    symbol: "\u265A"
+  - !!python/object:game_files.pieces.Queen
+    alive: true
+    current_position:
+    - 4
+    - 1
+    name: queen
+    symbol: "\u265B"
+  - !!python/object:game_files.pieces.Rook
+    alive: true
+    current_position:
+    - 1
+    - 1
+    name: rook
+    symbol: "\u265C"
+  - !!python/object:game_files.pieces.Rook
+    alive: true
+    current_position:
+    - 8
+    - 1
+    name: rook
+    symbol: "\u265C"
+  - !!python/object:game_files.pieces.Bishop
+    alive: true
+    current_position:
+    - 3
+    - 1
+    name: bishop
+    symbol: "\u265D"
+  - !!python/object:game_files.pieces.Bishop
+    alive: true
+    current_position:
+    - 6
+    - 1
+    name: bishop
+    symbol: "\u265D"
+  - !!python/object:game_files.pieces.Knight
+    alive: true
+    current_position:
+    - 2
+    - 1
+    name: knight
+    possible_moves:
+    - - 1
+      - 2
+    - - 2
+      - 1
+    - - 2
+      - -1
+    - - 1
+      - -2
+    - - -1
+      - 2
+    - - -2
+      - -1
+    - - -2
+      - 1
+    - - -1
+      - -2
+    symbol: "\u265E"
+  - !!python/object:game_files.pieces.Knight
+    alive: true
+    current_position:
+    - 7
+    - 1
+    name: knight
+    possible_moves:
+    - - 1
+      - 2
+    - - 2
+      - 1
+    - - 2
+      - -1
+    - - 1
+      - -2
+    - - -1
+      - 2
+    - - -2
+      - -1
+    - - -2
+      - 1
+    - - -1
+      - -2
+    symbol: "\u265E"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 1
+    - 2
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u265F"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 2
+    - 2
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u265F"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 3
+    - 2
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u265F"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 4
+    - 2
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u265F"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 5
+    - 2
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u265F"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 6
+    - 2
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u265F"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 7
+    - 2
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u265F"
+  - !!python/object:game_files.pieces.Pawn
+    alive: true
+    capture_moves:
+    - - 1
+      - -1
+    - - 1
+      - 1
+    current_position:
+    - 8
+    - 2
+    name: pawn
+    possible_moves:
+    - - 0
+      - 1
+    symbol: "\u265F"
+  winner: false
+- !!python/object:game_files.board.Board
+  game_board:
+  - - "\u265C"
+    - "\u265E"
+    - "\u265D"
+    - "\u265B"
+    - "\u265A"
+    - "\u265D"
+    - "\u265E"
+    - "\u265C"
+  - - "\u265F"
+    - "\u265F"
+    - "\u265F"
+    - "\u265F"
+    - "\u265F"
+    - "\u265F"
+    - "\u265F"
+    - "\u265F"
+  - - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+  - - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+  - - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+  - - "\u2659"
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+  - - ' '
+    - "\u2659"
+    - "\u2659"
+    - "\u2659"
+    - "\u2659"
+    - "\u2659"
+    - "\u2659"
+    - "\u2659"
+  - - "\u2656"
+    - "\u2658"
+    - "\u2657"
+    - "\u2655"
+    - "\u2654"
+    - "\u2657"
+    - "\u2658"
+    - "\u2656"

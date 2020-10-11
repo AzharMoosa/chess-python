@@ -1,6 +1,7 @@
 import os
 from os import sendfile
 import sys
+import yaml
 from game_files.player import Player
 from game_files.board import Board
 from game_files.pieces import *
@@ -52,7 +53,14 @@ class Game:
                 break
             # Open Previous Game
             elif (user_input == "open"):
-                print("TODO")
+                self.openGame()
+                self.turn = self.saved_data[0]
+                self.player_one = self.saved_data[1]
+                self.player_two = self.saved_data[2]
+                self.game_board = self.saved_data[3]
+                self.cls()
+                self.start()
+                break
             # Display Rules
             elif (user_input == "rules"):
                 self.rules()
@@ -210,7 +218,17 @@ class Game:
             self.turn = 0
 
     def saveGame(self):
-        print("TODO")
+        self.saved_data = [self.turn, self.player_one,
+                           self.player_two, self.game_board]
+        with open("./saved_game/saved_data.yaml", "w") as file:
+            yaml.dump(self.saved_data, file)
+        self.printLineBreak()
+        print("Type 'open' to Resume Game".center(50))
+        self.printLineBreak()
+
+    def openGame(self):
+        with open("./saved_game/saved_data.yaml") as file:
+            self.saved_data = yaml.full_load(file)
 
     def convert_position(self, position):
         # Split Position into List

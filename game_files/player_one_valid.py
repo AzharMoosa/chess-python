@@ -89,9 +89,8 @@ class Valid_One:
                 dirX = -1
                 dirY = 0
             for i in range(1, abs(length)):
-                for piece in opponent:
-                    if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):
-                        return False
+                if (board[self.y1 + i * dirY - 1][self.x1 + i * dirX - 1] != " "):
+                    return False
         else:
             return False
 
